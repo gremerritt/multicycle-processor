@@ -1,4 +1,5 @@
-# Multicycle CPU Project -- Fall 2015 (EC413 -- Computer Organization)
+# Multicycle CPU Project
+Fall 2015 (EC413 -- Computer Organization)
 ## Introduction
 This project requires you to
   - Design and test a CPU that meets the set of requirements detailed below.
@@ -99,14 +100,14 @@ The instruction fields are laid out as follows:
   - The opcode pattern of all zeroes is reserved for NOOP.
   
 Some sample instructions:
-LI of the immediate value FFFE into register 0 bits [15:0]:
-32’b11100100000000001111111111111110 = 32’hE400FFFE
-LUI of the immediate value FFFF into register 0 bits [31:16]:
-32’b11101000000000001111111111111111 = 32’hE800FFFF
-ADD register 0 and immediate -1 and put result into register 31:
-32’b11001011111000001111111111111111 = 32’hCBE0FFFF
-Branch forward in memory by 16 32-bit words if register 31 is equal to zero:
-32’b10000011111000000000000000010000 = 32’h83E00010
+  - LI of the immediate value FFFE into register 0 bits [15:0]: 
+    - `32’b11100100000000001111111111111110` = `32’hE400FFFE`
+  - LUI of the immediate value FFFF into register 0 bits [31:16]:
+    - `32’b11101000000000001111111111111111` = `32’hE800FFFF`
+  - ADD register 0 and immediate -1 and put result into register 31:
+    - `32’b11001011111000001111111111111111` = `32’hCBE0FFFF`
+  - Branch forward in memory by 16 32-bit words if register 31 is equal to zero:
+    - `32’b10000011111000000000000000010000` = `32’h83E00010`
 
 Complete List of Instructions
 
