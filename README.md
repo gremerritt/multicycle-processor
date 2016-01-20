@@ -59,14 +59,17 @@ Motivation: This CPU is similar to the multicycle CPU that we discussed in class
   - Instructions will necessarily take multiple cycles to execute.
   - All parts can be implemented any way you like, including behavioral Verilog.
   - The design is not pipelined (unless you discuss with me for extra credit)
+
 ### Memory
 A 16-bit address line/32-bit data line pseudo-SRAM module will be provided. The interface will be identical to the register file (combinational read, latched/enabled write).
+
 ### CPU
 The features listed below are required. Other hardware (e.g. additional adders) should be created as necessary. Please note that the additional internal registers specified below must be used. This is to make the project more realistic and avoid having it devolve into a single cycle CPU.
   - A register file with (32) 32-bit general purpose registers.
   - The following additional internal CPU registers: 32-bit Program Counter (PC), 32-bit Instruction Register (IR), 32-bit Memory Data Register, ALUOut (for the output of the ALU), A and B (two outputs from the register file).
   - An ALU.
   - A controller.
+
 ### Operation
   - Assume that at start-up the registers hold random values; you can initialize them with LI and LUI instructions. LI is a real instruction in this CPU (not a pseudoinstruction).
   - To make things easier, the instructions can be sequenced as 32-bit words. That is, the first instruction is at address 0 in instruction memory, the second at address 1, etc. Because of this, there is no need to leftshift the sign-extended immediate in the branch instructions.
@@ -75,11 +78,14 @@ The features listed below are required. Other hardware (e.g. additional adders) 
     - All memory reads and writes must go through the MDR Register (32 bits).
     - All register operands must go through A&B Register (32 bits).
     -All ALU outputs must go through ALUOut Register (32 bits).
+
 ### Instruction Format
 Instructions are 32-bit. There are three formats: R-Type, I-Type, and J-Type.
 
 The instruction fields are laid out as follows:
+
     | Type | 31          format (bits)         0 |
+    |------|-------------------------------------|
     |  R   | opcode(6) | r1(5) | r2(5) | r3(5)   |
     |  I   | opcode(6) | r1(5) | r2(5) | imm(16) |
     |  J   | opcode(6) | imm(26)                 |
@@ -103,6 +109,7 @@ Branch forward in memory by 16 32-bit words if register 31 is equal to zero:
 32’b10000011111000000000000000010000 = 32’h83E00010
 
 Complete List of Instructions
+
     | Op3 | Op2 | Op1 | Op0 | Op1 | Op0 |              Output             | Function Name |
     |-----|-----|-----|-----|-----|-----|---------------------------------|---------------|
     |  0  |  0  |  0  |  0  |  0  |  0  |                                 |  NOOP         |
